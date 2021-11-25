@@ -4,10 +4,10 @@ I use concourse ci to,
 
 * Copy and edit `README.md` to `/docs/_includes/README.md` for
   [GitHub Webpage](https://jeffdecola.github.io/hello-go-deploy-marathon/)
-* TEST code
-* BUILD docker image
-* PUSH to dockerhub
-* DEPLOY to marathon
+* **TEST** code
+* **BUILD** docker image
+* **PUSH** to dockerhub
+* **DEPLOY** to marathon
 * Alert me of the progress via repo status and slack
 
 ## PIPELINE
