@@ -43,13 +43,13 @@ The concourse `resources types` are,
 
 * `hello-go-deploy-marathon` uses a resource type
   [docker-image](https://hub.docker.com/r/concourse/git-resource/)
-  to PULL a repo from github
+  to **PULL** a repo from github
 * `resource-dump-to-dockerhub` uses a resource type
   [docker-image](https://hub.docker.com/r/concourse/docker-image-resource/)
-  to PUSH a docker image to dockerhub.
+  to **PUSH** a docker image to dockerhub
 * `resource-marathon` users a resource type
   [docker-image](https://hub.docker.com/r/ckaznocha/marathon-resource)
-  to DEPLOY the newly created docker image to marathon.
+  to **DEPLOY** the newly created docker image to marathon
 * `resource-slack-alert` uses a resource type
   [docker image](https://hub.docker.com/r/cfcommunity/slack-notification-resource)
   that will notify slack on your progress
