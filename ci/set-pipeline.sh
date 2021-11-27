@@ -7,5 +7,6 @@ fly --target jeffs-ci-target \
     set-pipeline \
     --pipeline hello-go-deploy-marathon \
     --config pipeline.yml \
-    --load-vars-from ../../../.credentials.yml
+    --load-vars-from ../../../.credentials.yml \
+    --check-creds
 echo " "
