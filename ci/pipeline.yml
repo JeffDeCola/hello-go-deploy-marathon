@@ -4,20 +4,20 @@ jobs:
 
 - name: job-readme-github-pages
   plan:
-  - get: resource-github-repo
+  - get: hello-go-deploy-marathon
     trigger: true
   - put: resource-slack-alert
     params:
       channel: '#jeff-builds'
       text: "From hello-go-deploy-marathon: STARTED job-readme-github-pages in concourse ci."
   - put: resource-repo-status
-    params: { state: "pending", description: "STARTED job-readme-github-pages in concourse ci.", commit: "resource-github-repo" }
+    params: { state: "pending", description: "STARTED job-readme-github-pages in concourse ci.", commit: "hello-go-deploy-marathon" }
   - task: task-readme-github-pages
     # try this
-    file: resource-github-repo/ci/tasks/task-readme-github-pages.yml
+    file: hello-go-deploy-marathon/ci/tasks/task-readme-github-pages.yml
     on_success:
       do:
-      - put: resource-github-repo
+      - put: hello-go-deploy-marathon
         params:
           repository: hello-go-deploy-marathon-updated  
       - put: resource-slack-alert
@@ -25,7 +25,7 @@ jobs:
           channel: '#jeff-builds'
           text: "From hello-go-deploy-marathon: PASSED job-readme-github-pages in concourse ci."
       - put: resource-repo-status
-        params: { state: "success", description: "PASSED job-readme-github-pages in concourse ci", commit: "resource-github-repo" }
+        params: { state: "success", description: "PASSED job-readme-github-pages in concourse ci", commit: "hello-go-deploy-marathon" }
     on_failure:
       do:
       - put: resource-slack-alert
@@ -33,11 +33,11 @@ jobs:
           channel: '#jeff-builds'
           text: "From hello-go-deploy-marathon: FAILED job-readme-github-pages in concourse ci."
       - put: resource-repo-status
-        params: { state: "failure", description: "FAILED job-readme-github-pages in concourse ci", commit: "resource-github-repo" }
+        params: { state: "failure", description: "FAILED job-readme-github-pages in concourse ci", commit: "hello-go-deploy-marathon" }
 
 - name: job-unit-tests
   plan:
-  - get: resource-github-repo
+  - get: hello-go-deploy-marathon
     trigger: true
     passed: [job-readme-github-pages]
   - put: resource-slack-alert
@@ -45,12 +45,12 @@ jobs:
       channel: '#jeff-builds'
       text: "From hello-go-deploy-marathon: STARTED job-unit-tests in concourse ci."
   - put: resource-repo-status
-    params: { state: "pending", description: "STARTED job-unit-tests in concourse ci.", commit: "resource-github-repo" }
+    params: { state: "pending", description: "STARTED job-unit-tests in concourse ci.", commit: "hello-go-deploy-marathon" }
   - task: task-unit-tests
     file: hello-go-deploy-marathon/ci/tasks/task-unit-tests.yml
     on_success:
       do:
-      - put: resource-github-repo
+      - put: hello-go-deploy-marathon
         params:
           repository: hello-go-deploy-marathon  
       - put: resource-slack-alert
@@ -61,7 +61,7 @@ jobs:
             From hello-go-deploy-marathon: PASSED job-unit-tests in concourse ci. 
             $TEXT_FILE_CONTENT
       - put: resource-repo-status
-        params: { state: "success", description: "PASSED job-unit-tests in concourse ci", commit: "resource-github-repo" }
+        params: { state: "success", description: "PASSED job-unit-tests in concourse ci", commit: "hello-go-deploy-marathon" }
     on_failure:
       do:
       - put: resource-slack-alert
@@ -69,11 +69,11 @@ jobs:
           channel: '#jeff-builds'
           text: "From hello-go-deploy-marathon: FAILED job-unit-tests in concourse ci."
       - put: resource-repo-status
-        params: { state: "failure", description: "FAILED job-unit-tests in concourse ci.", commit: "resource-github-repo" }
+        params: { state: "failure", description: "FAILED job-unit-tests in concourse ci.", commit: "hello-go-deploy-marathon" }
 
 - name: job-build-push
   plan:
-    - get: resource-github-repo
+    - get: hello-go-deploy-marathon
       trigger: true
       passed: [job-unit-tests]
     - put: resource-slack-alert
@@ -81,7 +81,7 @@ jobs:
         channel: '#jeff-builds'
         text: "From hello-go-deploy-marathon: STARTED job-build-push in concourse ci."
     - put: resource-repo-status
-      params: { state: "pending", description: "STARTED job-build-push in concourse ci.", commit: "resource-github-repo" }
+      params: { state: "pending", description: "STARTED job-build-push in concourse ci.", commit: "hello-go-deploy-marathon" }
     - task: task-build-push
       file: hello-go-deploy-marathon/ci/tasks/task-build-push.yml
     - put: resource-dump-to-dockerhub
@@ -93,7 +93,7 @@ jobs:
             channel: '#jeff-builds'
             text: "From hello-go-deploy-marathon: PASSED job-build-push in concourse ci."
         - put: resource-repo-status
-          params: { state: "pending", description: "PASSED job-build-push in concourse ci.", commit: "resource-github-repo" }
+          params: { state: "pending", description: "PASSED job-build-push in concourse ci.", commit: "hello-go-deploy-marathon" }
       on_failure:
         do:
         - put: resource-slack-alert
@@ -101,11 +101,11 @@ jobs:
             channel: '#jeff-builds'
             text: "From hello-go-deploy-marathon: FAILED job-build-push in concourse ci."
         - put: resource-repo-status
-          params: { state: "failure", description: "FAILED job-build-push in concourse ci.", commit: "resource-github-repo" }
+          params: { state: "failure", description: "FAILED job-build-push in concourse ci.", commit: "hello-go-deploy-marathon" }
 
 - name: job-deploy
   plan:
-    - get: resource-github-repo
+    - get: hello-go-deploy-marathon
       trigger: true
       passed: [job-build-push]
     - put: resource-slack-alert
@@ -113,7 +113,7 @@ jobs:
         channel: '#jeff-builds'
         text: "From hello-go-deploy-marathon: STARTED job-deploy in concourse ci."
     - put: resource-repo-status
-      params: { state: "pending", description: "STARTED job-deploy in concourse ci.", commit: "resource-github-repo" }
+      params: { state: "pending", description: "STARTED job-deploy in concourse ci.", commit: "hello-go-deploy-marathon" }
     - task: task-deploy
       file: hello-go-deploy-marathon/ci/tasks/task-deploy.yml
     - put: resource-deploy-marathon
@@ -125,7 +125,7 @@ jobs:
             channel: '#jeff-builds'
             text: "From hello-go-deploy-marathon: PASSED job-deploy in concourse ci."
         - put: resource-repo-status
-          params: { state: "success", description: "PASSED job-deploy in concourse ci.", commit: "resource-github-repo" }
+          params: { state: "success", description: "PASSED job-deploy in concourse ci.", commit: "hello-go-deploy-marathon" }
       on_failure:
         do:
         - put: resource-slack-alert
@@ -133,7 +133,7 @@ jobs:
             channel: '#jeff-builds'
             text: "From hello-go-deploy-marathon: FAILED job-deploy in concourse ci."
         - put: resource-repo-status
-          params: { state: "failure", description: "FAILED job-deploy in concourse ci.", commit: "resource-github-repo" }
+          params: { state: "failure", description: "FAILED job-deploy in concourse ci.", commit: "hello-go-deploy-marathon" }
 
 resource_types:
 - name: slack-notification
@@ -154,7 +154,7 @@ resource_types:
 
 resources:
 
-- name: resource-github-repo
+- name: hello-go-deploy-marathon
   type: git
   source:
     #uri: https://github.com/jeffdecola/hello-go-deploy-marathon
