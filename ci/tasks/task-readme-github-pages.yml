@@ -9,10 +9,10 @@ image_resource:
     tag: 1.17.3
 
 inputs:
-- name: resource-github-repo
+- name: hello-go-deploy-marathon
 
 outputs:
-- name: resource-github-repo-updated
+- name: hello-go-deploy-marathon-updated
 
 run:
   path: ./hello-go-deploy-marathon/ci/scripts/readme-github-pages.sh

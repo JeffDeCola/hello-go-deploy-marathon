@@ -13,7 +13,8 @@ jobs:
   - put: resource-repo-status
     params: { state: "pending", description: "STARTED job-readme-github-pages in concourse ci.", commit: "resource-github-repo" }
   - task: task-readme-github-pages
-    file: hello-go-deploy-marathon/ci/tasks/task-readme-github-pages.yml
+    # try this
+    file: resource-github-repo/ci/tasks/task-readme-github-pages.yml
     on_success:
       do:
       - put: resource-github-repo
