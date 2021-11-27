@@ -41,20 +41,20 @@ The concourse `jobs` and `tasks` are,
 
 The concourse `resources types` are,
 
-* `hello-go-deploy-marathon` uses a resource type
-  [docker-image](https://hub.docker.com/r/concourse/git-resource/)
+* `hello-go-deploy-marathon` users a docker image
+  [concourse/git-resource](https://hub.docker.com/r/concourse/git-resource/)
   to **PULL** a repo from github
-* `resource-dump-to-dockerhub` uses a resource type
-  [docker-image](https://hub.docker.com/r/concourse/docker-image-resource/)
+* `resource-dump-to-dockerhub` users a docker image
+  [concourse/docker-image-resource](https://hub.docker.com/r/concourse/docker-image-resource/)
   to **PUSH** a docker image to dockerhub
-* `resource-marathon` users a resource type
-  [docker-image](https://hub.docker.com/r/ckaznocha/marathon-resource)
+* `resource-deploy-marathon` users a docker image
+  [ckaznocha/marathon-resource](https://hub.docker.com/r/ckaznocha/marathon-resource)
   to **DEPLOY** the newly created docker image to marathon
-* `resource-slack-alert` uses a resource type
-  [docker image](https://hub.docker.com/r/cfcommunity/slack-notification-resource)
+* `resource-slack-alert` users a docker image
+  [cfcommunity/slack-notification-resource](https://hub.docker.com/r/cfcommunity/slack-notification-resource)
   that will notify slack on your progress
-* `resource-repo-status` uses a resource type
-  [docker image](https://hub.docker.com/r/dpb587/github-status-resource)
+* `resource-repo-status` users a docker image
+  [dpb587/github-status-resource](https://hub.docker.com/r/dpb587/github-status-resource)
   that will update your git status for that particular commit
 
 For more information on using concourse for continuous integration,
