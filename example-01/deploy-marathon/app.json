@@ -9,7 +9,7 @@
             "image": "jeffdecola/hello-go-deploy-marathon:latest",
             "network": "BRIDGE",
             "portMappings": [{
-                "containerPort": 8080,
+                "containerPort": 8082,
                 "hostPort": 0
             }]
         }
