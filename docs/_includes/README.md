@@ -1,5 +1,5 @@
-_built with
-[concourse ci](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/ci-README.md)_
+  _built with
+  [concourse](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/ci-README.md)_
 
 # OVERVIEW
 
@@ -38,7 +38,7 @@ To deploy to `mesos/marathon` you will need,
 * [marathon](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/cluster-managers-resource-management-scheduling/marathon-cheat-sheet)
 * [mesos](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/cluster-managers-resource-management-scheduling/mesos-cheat-sheet)
 
-As a bonus, you can use concourse ci,
+As a bonus, you can use concourse for continuous integration and deployment,
 
 * [concourse](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/continuous-integration-continuous-deployment/concourse-cheat-sheet)
 
