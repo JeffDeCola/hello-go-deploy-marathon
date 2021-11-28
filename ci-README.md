@@ -1,6 +1,6 @@
-# CONCOURSE CONTINUOUS INTEGRATION
+# CONCOURSE CONTINUOUS INTEGRATION & DEPLOYMENT
 
-I use concourse ci to,
+I use concourse to automatic,
 
 * Copy and edit `README.md` to `/docs/_includes/README.md` for
   [GitHub Webpage](https://jeffdecola.github.io/hello-go-deploy-marathon/)
@@ -16,7 +16,7 @@ The concourse
 [pipeline.yml](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/ci/pipeline.yml)
 shows the entire ci flow. Visually, it looks like,
 
-![IMAGE - hello-go-deploy-marathon concourse ci pipeline - IMAGE](docs/pics/hello-go-deploy-marathon-pipeline.jpg)
+![IMAGE - hello-go-deploy-marathon concourse pipeline - IMAGE](docs/pics/hello-go-deploy-marathon-pipeline.jpg)
 
 ## JOBS, TASKS AND RESOURCE TYPES
 
@@ -57,6 +57,6 @@ The concourse `resources types` are,
   [dpb587/github-status-resource](https://hub.docker.com/r/dpb587/github-status-resource)
   that will update your git status for that particular commit
 
-For more information on using concourse for continuous integration,
+For more information on using concourse for continuous integration & deployment,
 refer to my
 [concourse-cheat-sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/continuous-integration-continuous-deployment/concourse-cheat-sheet).
