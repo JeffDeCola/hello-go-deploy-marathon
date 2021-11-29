@@ -44,8 +44,8 @@ Documentation and references,
 * The
   [hello-go-deploy-marathon](https://hub.docker.com/r/jeffdecola/hello-go-deploy-marathon)
   docker image on DockerHub
-* The
-  [GitHub Webpage](https://jeffdecola.github.io/hello-go-deploy-marathon/)
+* This repos
+  [github webpage](https://jeffdecola.github.io/hello-go-deploy-marathon/)
   _built with
   [concourse](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/ci-README.md)_
 
