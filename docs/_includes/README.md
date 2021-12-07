@@ -76,18 +76,18 @@ since it creates it's own.
 The following steps are located in
 [unit-tests.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/tree/master/example-01/test/unit-tests.sh).
 
+To create `_test` files,
+
+```bash
+gotests -w -all main.go
+```
+
 To unit test the code,
 
 ```bash
 cd example-01
 go test -cover ./... | tee test/test_coverage.txt
 cat test/test_coverage.txt
-```
-
-To create `_test` files,
-
-```bash
-gotests -w -all main.go
 ```
 
 ## STEP 2 - BUILD (DOCKER IMAGE VIA DOCKERFILE)
