@@ -23,6 +23,7 @@ You will need the following go packages,
 
 ```bash
 go get -u -v github.com/sirupsen/logrus
+go get -u -v github.com/cweill/gotests/...
 ```
 
 To build a docker image you will need docker on your machine,
@@ -41,6 +42,19 @@ To deploy to `mesos/marathon` you will need,
 As a bonus, you can use concourse for continuous integration and deployment,
 
 * [concourse](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/continuous-integration-continuous-deployment/concourse-cheat-sheet)
+
+## SOFTWARE STACK
+
+* DEVELOPMENT
+  * golang
+  * gotests
+* OPERATIONS
+  * concourse (optional)
+  * docker
+  * mesos/marathon
+* SERVICES
+  * github
+  * dockerhub
 
 ## RUN
 
