@@ -29,15 +29,16 @@ I also have other repos showing different deployments,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola//tree/masterh#overview)
-* [PREREQUISITES](https://github.com/JeffDeCola//tree/masterh#prerequisites)
-* [RUN](https://github.com/JeffDeCola//tree/masterh#run)
-* [CREATE BINARY](https://github.com/JeffDeCola//tree/masterh#create-binary)
-* [STEP 1 - TEST](https://github.com/JeffDeCola//tree/masterh#step-1---test)
-* [STEP 2 - BUILD (DOCKER IMAGE VIA DOCKERFILE)](https://github.com/JeffDeCola//tree/masterh#step-2---build-docker-image-via-dockerfile)
-* [STEP 3 - PUSH (TO DOCKERHUB)](https://github.com/JeffDeCola//tree/masterh#step-3---push-to-dockerhub)
-* [STEP 4 - DEPLOY (TO MARATHON)](https://github.com/JeffDeCola//tree/masterh#step-4---deploy-to-marathon)
-* [CONTINUOUS INTEGRATION & DEPLOYMENT](https://github.com/JeffDeCola//tree/masterh#continuous-integration--deployment)
+* [OVERVIEW](https://github.com/JeffDeCola/hello-go-deploy-marathon#overview)
+* [PREREQUISITES](https://github.com/JeffDeCola/hello-go-deploy-marathon#prerequisites)
+* [SOFTWARE STACK](https://github.com/JeffDeCola/hello-go-deploy-marathon#software-stack)
+* [RUN](https://github.com/JeffDeCola/hello-go-deploy-marathon#run)
+* [CREATE BINARY](https://github.com/JeffDeCola/hello-go-deploy-marathon#create-binary)
+* [STEP 1 - TEST](https://github.com/JeffDeCola/hello-go-deploy-marathon#step-1---test)
+* [STEP 2 - BUILD (DOCKER IMAGE VIA DOCKERFILE)](https://github.com/JeffDeCola/hello-go-deploy-marathon#step-2---build-docker-image-via-dockerfile)
+* [STEP 3 - PUSH (TO DOCKERHUB)](https://github.com/JeffDeCola/hello-go-deploy-marathon#step-3---push-to-dockerhub)
+* [STEP 4 - DEPLOY (TO MARATHON)](https://github.com/JeffDeCola/hello-go-deploy-marathon#step-4---deploy-to-marathon)
+* [CONTINUOUS INTEGRATION & DEPLOYMENT](https://github.com/JeffDeCola/hello-go-deploy-marathon#continuous-integration--deployment)
 
 Documentation and references,
 
@@ -71,6 +72,7 @@ You will need the following go packages,
 
 ```bash
 go get -u -v github.com/sirupsen/logrus
+go get -u -v github.com/cweill/gotests/...
 ```
 
 To build a docker image you will need docker on your machine,
@@ -89,6 +91,19 @@ To deploy to `mesos/marathon` you will need,
 As a bonus, you can use concourse for continuous integration and deployment,
 
 * [concourse](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/continuous-integration-continuous-deployment/concourse-cheat-sheet)
+
+## SOFTWARE STACK
+
+* DEVELOPMENT
+  * golang
+  * gotests
+* OPERATIONS
+  * concourse (optional)
+  * docker
+  * mesos/marathon
+* SERVICES
+  * github
+  * dockerhub
 
 ## RUN
 
