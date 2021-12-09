@@ -46,15 +46,19 @@ As a bonus, you can use concourse for continuous integration and deployment,
 ## SOFTWARE STACK
 
 * DEVELOPMENT
-  * golang
+  * [go](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
   * gotests
 * OPERATIONS
-  * concourse (optional)
-  * docker
-  * mesos/marathon
+  * [concourse/fly](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/continuous-integration-continuous-deployment/concourse-cheat-sheet)
+    (optional)
+  * [docker](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/builds-deployment-containers/docker-cheat-sheet)
+  * [mesos](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/cluster-managers-resource-management-scheduling/mesos-cheat-sheet)
+    /
+    [marathon](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/cluster-managers-resource-management-scheduling/marathon-cheat-sheet)
+
 * SERVICES
-  * github
-  * dockerhub
+  * [dockerhub](https://hub.docker.com/)
+  * [github](https://github.com/)
 
 ## RUN
 
