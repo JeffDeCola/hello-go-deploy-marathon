@@ -104,7 +104,6 @@ As a bonus, you can use concourse for continuous integration and deployment,
   * [mesos](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/cluster-managers-resource-management-scheduling/mesos-cheat-sheet)
     /
     [marathon](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/cluster-managers-resource-management-scheduling/marathon-cheat-sheet)
-
 * SERVICES
   * [dockerhub](https://hub.docker.com/)
   * [github](https://github.com/)
