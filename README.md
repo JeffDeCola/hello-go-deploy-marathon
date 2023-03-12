@@ -1,10 +1,13 @@
-# hello-go-deploy-marathon
+# HELLO GO DEPLOY MARATHON
 
+[![Tag Latest](https://img.shields.io/github/v/tag/jeffdecola/hello-go-deploy-marathon)](https://github.com/JeffDeCola/hello-go-deploy-marathon/tags)
+[![Go Reference](https://pkg.go.dev/badge/github.com/JeffDeCola/hello-go-deploy-marathon.svg)](https://pkg.go.dev/github.com/JeffDeCola/hello-go-deploy-marathon)
 [![Go Report Card](https://goreportcard.com/badge/github.com/JeffDeCola/hello-go-deploy-marathon)](https://goreportcard.com/report/github.com/JeffDeCola/hello-go-deploy-marathon)
-[![GoDoc](https://godoc.org/github.com/JeffDeCola/hello-go-deploy-marathon?status.svg)](https://godoc.org/github.com/JeffDeCola/hello-go-deploy-marathon)
-[![Maintainability](https://api.codeclimate.com/v1/badges/24c711ac3a1ec5155969/maintainability)](https://codeclimate.com/github/JeffDeCola/hello-go-deploy-marathon/maintainability)
-[![Issue Count](https://codeclimate.com/github/JeffDeCola/hello-go-deploy-marathon/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/hello-go-deploy-marathon/issues)
-[![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
+[![codeclimate Maintainability](https://api.codeclimate.com/v1/badges/24c711ac3a1ec5155969/maintainability)](https://codeclimate.com/github/JeffDeCola/hello-go-deploy-marathon/maintainability)
+[![codeclimate Issue Count](https://codeclimate.com/github/JeffDeCola/hello-go-deploy-marathon/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/hello-go-deploy-marathon/issues)
+[![Docker Pulls](https://badgen.net/docker/pulls/jeffdecola/hello-go-deploy-marathon?icon=docker&label=pulls)](https://hub.docker.com/r/jeffdecola/hello-go-deploy-marathon/)
+[![MIT License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 
 _Test, build, push (to DockerHub) and deploy
 a long running "hello-world" Docker Image to Mesos/Marathon._
@@ -27,7 +30,7 @@ I also have other repos showing different deployments,
   * [hello-go-deploy-azure-vm](https://github.com/JeffDeCola/hello-go-deploy-azure-vm)
   * [hello-go-deploy-gce](https://github.com/JeffDeCola/hello-go-deploy-gce)
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/hello-go-deploy-marathon#overview)
 * [PREREQUISITES](https://github.com/JeffDeCola/hello-go-deploy-marathon#prerequisites)
@@ -40,11 +43,16 @@ Table of Contents,
 * [STEP 4 - DEPLOY (TO MARATHON)](https://github.com/JeffDeCola/hello-go-deploy-marathon#step-4---deploy-to-marathon)
 * [CONTINUOUS INTEGRATION & DEPLOYMENT](https://github.com/JeffDeCola/hello-go-deploy-marathon#continuous-integration--deployment)
 
-Documentation and references,
+Documentation and Reference
 
+* [marathon](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations/orchestration/cluster-managers-resource-management-scheduling/marathon-cheat-sheet),
+  [go](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
+  and
+  [docker](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations/orchestration/builds-deployment-containers/docker-cheat-sheet)
+  cheat sheets
 * The
-  [hello-go-deploy-marathon](https://hub.docker.com/r/jeffdecola/hello-go-deploy-marathon)
-  docker image on DockerHub
+  [hello-go-deploy-marathon docker image](https://hub.docker.com/r/jeffdecola/hello-go-deploy-marathon)
+  on DockerHub
 * This repos
   [github webpage](https://jeffdecola.github.io/hello-go-deploy-marathon/)
   _built with
@@ -52,7 +60,7 @@ Documentation and references,
 
 ## OVERVIEW
 
-Every 2 seconds it will print,
+Every 2 seconds this App will print,
 
 ```txt
     INFO[0000] Let's Start this!
@@ -64,10 +72,6 @@ Every 2 seconds it will print,
 
 ## PREREQUISITES
 
-I used the following language,
-
-* [go](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
-
 You will need the following go packages,
 
 ```bash
@@ -75,62 +79,40 @@ go get -u -v github.com/sirupsen/logrus
 go get -u -v github.com/cweill/gotests/...
 ```
 
-To build a docker image you will need docker on your machine,
-
-* [docker](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/builds-deployment-containers/docker-cheat-sheet)
-
-To push a docker image you will need,
-
-* [DockerHub account](https://hub.docker.com/)
-
-To deploy to `mesos/marathon` you will need,
-
-* [marathon](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/cluster-managers-resource-management-scheduling/marathon-cheat-sheet)
-* [mesos](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/cluster-managers-resource-management-scheduling/mesos-cheat-sheet)
-
-As a bonus, you can use concourse for continuous integration and deployment,
-
-* [concourse](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/continuous-integration-continuous-deployment/concourse-cheat-sheet)
-
 ## SOFTWARE STACK
 
 * DEVELOPMENT
   * [go](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
   * gotests
 * OPERATIONS
-  * [concourse/fly](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/continuous-integration-continuous-deployment/concourse-cheat-sheet)
+  * [concourse/fly](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations/continuous-integration-continuous-deployment/concourse-cheat-sheet)
     (optional)
-  * [docker](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/builds-deployment-containers/docker-cheat-sheet)
-  * [mesos](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/cluster-managers-resource-management-scheduling/mesos-cheat-sheet)
+  * [docker](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations/orchestration/builds-deployment-containers/docker-cheat-sheet)
+  * [mesos](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations/orchestration/cluster-managers-resource-management-scheduling/mesos-cheat-sheet)
     /
-    [marathon](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/cluster-managers-resource-management-scheduling/marathon-cheat-sheet)
+    [marathon](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations/orchestration/cluster-managers-resource-management-scheduling/marathon-cheat-sheet)
 * SERVICES
   * [dockerhub](https://hub.docker.com/)
   * [github](https://github.com/)
 
 ## RUN
 
-The following steps are located in
-[run.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/run.sh).
-
-To run
-[main.go](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/main.go)
-from the command line,
+To
+[run.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/run.sh),
 
 ```bash
-cd example-01
+cd hello-go-deploy-marathon-code
 go run main.go
 ```
 
 ## CREATE BINARY
 
-The following steps are located in
-[create-binary.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/bin/create-binary.sh).
+To
+[create-binary.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/bin/create-binary.sh),
 
 ```bash
-cd example-01
-go build -o bin/hello-go main.go
-cd bin
+cd hello-go-deploy-marathon-code/bin
+go build -o hello-go main.go
 ./hello-go
 ```
 
@@ -139,34 +121,30 @@ since it creates it's own.
 
 ## STEP 1 - TEST
 
-The following steps are located in
-[unit-tests.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/tree/master/example-01/test/unit-tests.sh).
-
-To create `_test` files,
+To create unit tests,
 
 ```bash
 gotests -w -all main.go
 ```
 
-To unit test the code,
+To run
+[unit-tests.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/tree/master/example-01/test/unit-tests.sh),
 
 ```bash
-cd example-01
+cd hello-go-deploy-marathon-code
 go test -cover ./... | tee test/test_coverage.txt
 cat test/test_coverage.txt
 ```
 
 ## STEP 2 - BUILD (DOCKER IMAGE VIA DOCKERFILE)
 
-The following steps are located in
-[build.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/build-push/build.sh).
-
-We will be using a multi-stage build using a
-[Dockerfile](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/build-push/Dockerfile).
-The end result will be a very small docker image around 13MB.
+To
+[build.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/build-push/build.sh)
+with a
+[Dockerfile](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/build-push/Dockerfile),
 
 ```bash
-cd example-01
+cd hello-go-deploy-marathon-code
 docker build -f build-push/Dockerfile -t jeffdecola/hello-go-deploy-marathon .
 ```
 
