@@ -98,7 +98,7 @@ go get -u -v github.com/cweill/gotests/...
 ## RUN
 
 To
-[run.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/run.sh),
+[run.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/run.sh),
 
 ```bash
 cd hello-go-deploy-marathon-code
@@ -108,7 +108,7 @@ go run main.go
 ## CREATE BINARY
 
 To
-[create-binary.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/bin/create-binary.sh),
+[create-binary.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/bin/create-binary.sh),
 
 ```bash
 cd hello-go-deploy-marathon-code/bin
@@ -121,17 +121,17 @@ since it creates it's own.
 
 ## STEP 1 - TEST
 
-To create unit tests,
+To create unit `_test` files,
 
 ```bash
+cd hello-go-deploy-marathon-code
 gotests -w -all main.go
 ```
 
 To run
-[unit-tests.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/tree/master/example-01/test/unit-tests.sh),
+[unit-tests.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/tree/master/hello-go-deploy-marathon-code/test/unit-tests.sh),
 
 ```bash
-cd hello-go-deploy-marathon-code
 go test -cover ./... | tee test/test_coverage.txt
 cat test/test_coverage.txt
 ```
@@ -139,13 +139,13 @@ cat test/test_coverage.txt
 ## STEP 2 - BUILD (DOCKER IMAGE VIA DOCKERFILE)
 
 To
-[build.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/build-push/build.sh)
+[build.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/build/build.sh)
 with a
-[Dockerfile](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/build-push/Dockerfile),
+[Dockerfile](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/build/Dockerfile),
 
 ```bash
 cd hello-go-deploy-marathon-code
-docker build -f build-push/Dockerfile -t jeffdecola/hello-go-deploy-marathon .
+docker build -f build/Dockerfile -t jeffdecola/hello-go-deploy-marathon .
 ```
 
 You can check and test this docker image,
@@ -158,11 +158,8 @@ docker logs hello-go-deploy-marathon
 ```
 
 In **stage 1**, rather than copy a binary into a docker image (because
-that can cause issues), **the Dockerfile will build the binary in the
-docker image.**
-
-If you open the DockerFile you can see it will get the dependencies and
-build the binary in go,
+that can cause issues), the Dockerfile will build the binary in the
+docker image,
 
 ```bash
 FROM golang:alpine AS builder
@@ -176,35 +173,33 @@ on `alpine`, which is around 13MB.
 
 ## STEP 3 - PUSH (TO DOCKERHUB)
 
-The following steps are located in
-[push.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/build-push/push.sh).
-
-If you are not logged in, you need to login to dockerhub,
+You must be logged in to DockerHub,
 
 ```bash
 docker login
 ```
 
-Once logged in you can push to DockerHub,
+To
+[push.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/push/push.sh),
 
 ```bash
 docker push jeffdecola/hello-go-deploy-marathon
 ```
 
 Check the
-[hello-go-deploy-marathon](https://hub.docker.com/r/jeffdecola/hello-go-deploy-marathon)
-docker image at DockerHub.
+[hello-go-deploy-marathon docker image](https://hub.docker.com/r/jeffdecola/hello-go-deploy-marathon)
+at DockerHub.
 
 ## STEP 4 - DEPLOY (TO MARATHON)
 
 The following steps are located in
-[deploy.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/deploy-marathon/deploy.sh).
+[deploy.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/deploy-marathon/deploy.sh).
 
 Pull the `hello-go-deploy-marathon` docker image
 from DockerHub and deploy to mesos/marathon.
 
 This is actually very simple, you just PUT the
-[app.json](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/deploy-marathon/app.json)
+[app.json](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/deploy-marathon/app.json)
 file to mesos/marathon. This .json file tells marathon what to do.
 
 ```bash
