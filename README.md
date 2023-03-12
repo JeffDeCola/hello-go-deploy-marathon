@@ -144,8 +144,8 @@ with a
 [Dockerfile](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/build/Dockerfile),
 
 ```bash
-cd hello-go-deploy-marathon-code
-docker build -f build/Dockerfile -t jeffdecola/hello-go-deploy-marathon .
+cd hello-go-deploy-marathon-code/build
+docker build -f Dockerfile -t jeffdecola/hello-go-deploy-marathon .
 ```
 
 You can check and test this docker image,
@@ -192,18 +192,15 @@ at DockerHub.
 
 ## STEP 4 - DEPLOY (TO MARATHON)
 
-The following steps are located in
-[deploy.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/deploy-marathon/deploy.sh).
-
-Pull the `hello-go-deploy-marathon` docker image
-from DockerHub and deploy to mesos/marathon.
-
-This is actually very simple, you just PUT the
+The
 [app.json](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/deploy-marathon/app.json)
-file to mesos/marathon. This .json file tells marathon what to do.
+tells marathon how to deploy the docker image from dockerhub.
+
+To
+[deploy.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/deploy-marathon/deploy.sh),
 
 ```bash
-cd deploy-marathon
+cd hello-go-deploy-marathon-code/deploy
 curl -X PUT http://192.168.20.117:8080/v2/apps/hello-go-long-running \
 -d @app.json \
 -H "Content-type: application/json"
