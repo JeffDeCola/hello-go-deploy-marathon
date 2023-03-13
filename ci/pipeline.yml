@@ -117,7 +117,7 @@ jobs:
     - task: task-deploy
       file: hello-go-deploy-marathon/ci/tasks/task-deploy.yml
     - put: resource-deploy-marathon
-      params: {app_json: "hello-go-deploy-marathon/example-01/deploy-marathon/app.json", time_out: 10}
+      params: {app_json: "hello-go-deploy-marathon/hello-go-deploy-marathon-code/deploy/app.json", time_out: 10}
       on_success:
         do:
         - put: resource-slack-alert
