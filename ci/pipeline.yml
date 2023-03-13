@@ -183,7 +183,7 @@ resources:
     access_token: ((repo_github_token))
 - name: resource-deploy-marathon
   type: marathon-deploy
-  icon: marathon
+  icon: github
   source:
     app_id: hello-go-deploy-marathon-long-run
     uri: http://localhost:8080
