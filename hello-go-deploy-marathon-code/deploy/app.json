@@ -1,7 +1,8 @@
 {
     "id": "hello-go-deploy-marathon-long-run",
-    "cpus": 0.1,
-    "mem": 4.0,
+    "cpus": 1,
+    "mem": 128,
+    "instances": 1,
     "container": {
         "type": "DOCKER",
         "docker": {
@@ -9,7 +10,7 @@
             "image": "jeffdecola/hello-go-deploy-marathon:latest",
             "network": "BRIDGE",
             "portMappings": [{
-                "containerPort": 8082,
+                "containerPort": 8080,
                 "hostPort": 0
             }]
         }

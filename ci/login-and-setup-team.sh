@@ -1,5 +1,5 @@
-#!/bin/bash
-# hello-go-deploy-marathon login-concourse-setup-team.sh
+#!/bin/sh
+# hello-go-deploy-marathon login-and-setup-team.sh
 
 echo " "
 echo "STEP 1 - LOGIN FIRST TIME TO default TEAM main"

@@ -56,8 +56,8 @@ echo "cp -R ./hello-go-deploy-marathon src/github.com/JeffDeCola/."
 cp -R ./hello-go-deploy-marathon src/github.com/JeffDeCola/.
 echo " "
 
-echo "cd src/github.com/JeffDeCola/hello-go-deploy-marathon/example-01"
-cd src/github.com/JeffDeCola/hello-go-deploy-marathon/example-01
+echo "cd src/github.com/JeffDeCola/hello-go-deploy-marathon/hello-go-deploy-marathon-code"
+cd src/github.com/JeffDeCola/hello-go-deploy-marathon/hello-go-deploy-marathon-code
 echo " "
 
 echo "Check that you are set and everything is in the right place for go:"

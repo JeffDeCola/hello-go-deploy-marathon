@@ -1,24 +1,32 @@
 #!/bin/sh
-# hello-go-deploy-marathon example-01 deploy.sh
+# hello-go-deploy-marathon deploy.sh
 
 echo " "
 
 if [ "$1" = "-debug" ]
 then
-    echo "deploy.sh -debug (START)"
-    echo " "
-    # set -x enables a mode of the shell where all executed commands are printed to the terminal.
+    echo "************************************************************************"
+    echo "* deploy.sh -debug (START) *********************************************"
+    echo "************************************************************************"
+    # set -x enables a mode of the shell where all executed commands
+    # are printed to the terminal.
     set -x
     echo " "
 else
-    echo " "
-    echo "deploy.sh (START)"
+    echo "************************************************************************"
+    echo "* deploy.sh (START) ****************************************************"
+    echo "************************************************************************"
     echo " "
 fi
 
 echo "Send app.json file to marathon"
-curl -X PUT http://192.168.56.101:8082/v2/apps/hello-go-long-running -d @app.json -H "Content-type: application/json"
+curl -X PUT http://localhost:8080/v2/apps/hello-go-long-running \
+     -d @app.json \
+     -H "Content-type: application/json"
+echo " "
 echo " "
 
-echo "deploy.sh (END)"
+echo "************************************************************************"
+echo "* deploy.sh (END) ******************************************************"
+echo "************************************************************************"
 echo " "
