@@ -28,8 +28,8 @@ echo "CHECK THINGS -------------------------------------------------------------
 echo " "
 
 echo "List whats in the app.json file"
-echo "cat hello-go-deploy-marathon/example-01/deploy-marathon/app.json"
-cat hello-go-deploy-marathon/example-01/deploy-marathon/app.json
+echo "cat hello-go-deploy-marathon/hello-go-deploy-marathon-code/deploy-marathon/app.json"
+cat hello-go-deploy-marathon/hello-go-deploy-marathon-code/deploy-marathon/app.json
 echo " "
 
 echo "DEPLOY DONE IN PIPELINE ---------------------------------------------------------------"

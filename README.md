@@ -193,15 +193,15 @@ at DockerHub.
 ## STEP 4 - DEPLOY (TO MARATHON)
 
 The
-[app.json](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/deploy-marathon/app.json)
+[app.json](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/deploy/app.json)
 tells marathon how to deploy the docker image from dockerhub.
 
 To
-[deploy.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/deploy-marathon/deploy.sh),
+[deploy.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/deploy/deploy.sh),
 
 ```bash
 cd hello-go-deploy-marathon-code/deploy
-curl -X PUT http://192.168.20.117:8080/v2/apps/hello-go-long-running \
+curl -X PUT http://localhost:8080/v2/apps/hello-go-long-running \
 -d @app.json \
 -H "Content-type: application/json"
 ```

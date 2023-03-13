@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# hello-go-deploy-marathon example-01 build.sh
+# hello-go-deploy-marathon build.sh
 
 echo " "
 
@@ -8,7 +8,8 @@ then
     echo "************************************************************************"
     echo "* build.sh -debug (START) **********************************************"
     echo "************************************************************************"
-    # set -x enables a mode of the shell where all executed commands are printed to the terminal.
+    # set -x enables a mode of the shell where all executed commands
+    # are printed to the terminal.
     set -x
     echo " "
 else

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # hello-go-deploy-marathon set-pipeline.sh
 
 echo " "

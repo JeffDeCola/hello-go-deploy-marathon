@@ -156,6 +156,7 @@ resources:
 
 - name: hello-go-deploy-marathon
   type: git
+  icon: github
   source:
     #uri: https://github.com/jeffdecola/hello-go-deploy-marathon
     uri: git@github.com:jeffdecola/hello-go-deploy-marathon.git
@@ -163,6 +164,7 @@ resources:
     private_key: ((git_private_key))
 - name: resource-dump-to-dockerhub
   type: docker-image
+  icon: docker
   source:
     repository: jeffdecola/hello-go-deploy-marathon
     tag: latest
@@ -170,16 +172,18 @@ resources:
     password: ((dockerhub_password))
 - name: resource-slack-alert
   type: slack-notification
+  icon: slack
   source:
     url: ((slack_url)) 
 - name: resource-repo-status 
   type: github-status
+  icon: github
   source:
     repository: jeffdecola/hello-go-deploy-marathon 
     access_token: ((repo_github_token))
 - name: resource-deploy-marathon
   type: marathon-deploy
+  icon: marathon
   source:
     app_id: hello-go-deploy-marathon-long-run
-    uri: http://192.168.56.101:8082
-    
+    uri: http://localhost:8080

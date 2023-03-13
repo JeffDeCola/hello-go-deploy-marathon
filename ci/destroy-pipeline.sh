@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # hello-go-deploy-marathon destroy-pipeline.sh
 
 echo " "
