@@ -47,8 +47,8 @@ cp -r hello-go-deploy-marathon/hello-go-deploy-marathon-code/* dist
 echo " "
 
 echo "Copy the Dockefile into dist"
-echo "cp dist/build-push/Dockerfile dist"
-cp dist/build-push/Dockerfile dist
+echo "cp dist/build/Dockerfile dist"
+cp dist/build/Dockerfile dist
 
 echo "List whats in /dist"
 cd dist

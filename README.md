@@ -206,6 +206,13 @@ curl -X PUT http://localhost:8080/v2/apps/hello-go-long-running \
 -H "Content-type: application/json"
 ```
 
+You can locally run marathon to test with,
+
+```bash
+docker run --rm --privileged -p 5050:5050 -p 5051:5051 -p 8080:8080 mesos/mesos-mini
+http://localhost:8080
+```
+
 ## CONTINUOUS INTEGRATION & DEPLOYMENT
 
 Refer to
