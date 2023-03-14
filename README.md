@@ -155,6 +155,7 @@ docker images jeffdecola/hello-go-deploy-marathon:latest
 docker run --name hello-go-deploy-marathon -dit jeffdecola/hello-go-deploy-marathon
 docker exec -i -t hello-go-deploy-marathon /bin/bash
 docker logs hello-go-deploy-marathon
+docker rm -f hello-go-deploy-marathon
 ```
 
 In **stage 1**, rather than copy a binary into a docker image (because
