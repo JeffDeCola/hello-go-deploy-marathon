@@ -27,6 +27,17 @@ echo " "
 echo "CHECK THINGS --------------------------------------------------------------------------"
 echo " "
 
+echo "At start, you should be in a /tmp/build/xxxxx directory with two folders:"
+echo "   /hello-go-deploy-marathon"
+echo " "
+
+echo "pwd is: $PWD"
+echo " "
+
+echo "List whats in the current directory"
+ls -la
+echo " "
+
 echo "List whats in the app.json file"
 echo "cat hello-go-deploy-marathon/hello-go-deploy-marathon-code/deploy/app.json"
 cat hello-go-deploy-marathon/hello-go-deploy-marathon-code/deploy/app.json
