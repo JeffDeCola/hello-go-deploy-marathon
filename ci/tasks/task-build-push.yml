@@ -15,6 +15,5 @@ outputs:
 - name: dist
 
 run:
-
   path: ./hello-go-deploy-marathon/ci/scripts/build-push.sh
   # args: [-debug]

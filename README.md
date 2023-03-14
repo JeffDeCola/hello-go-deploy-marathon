@@ -112,7 +112,7 @@ To
 
 ```bash
 cd hello-go-deploy-marathon-code/bin
-go build -o hello-go main.go
+go build -o hello-go ../main.go
 ./hello-go
 ```
 
