@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# hello-go-deploy-marathon example-01 create-binary.sh
+# hello-go-deploy-marathon create-binary.sh
 
 echo " "
 
