@@ -1,4 +1,4 @@
-# hello-go-deploy-marathon task-build-push.yml
+# hello-go-deploy-marathon task-readme-github-pages.yml
 
 platform: linux
 
@@ -10,11 +10,11 @@ image_resource:
     tag: 1.20.1
 
 inputs:
-- name: hello-go-deploy-marathon
+  - name: hello-go-deploy-marathon
 
 outputs:
-- name: dist
+  - name: hello-go-deploy-marathon-updated
 
 run:
-  path: ./hello-go-deploy-marathon/ci/scripts/build-push.sh
+  path: ./hello-go-deploy-marathon/ci/scripts/readme-github-pages.sh
   # args: [-debug]

@@ -1,4 +1,4 @@
-# hello-go-deploy-marathon task-readme-github-pages.yml
+# hello-go-deploy-marathon task-unit-tests.yml
 
 platform: linux
 
@@ -10,11 +10,11 @@ image_resource:
     tag: 1.20.1
 
 inputs:
-- name: hello-go-deploy-marathon
+  - name: hello-go-deploy-marathon
 
 outputs:
-- name: hello-go-deploy-marathon-updated
+  - name: coverage-results
 
 run:
-  path: ./hello-go-deploy-marathon/ci/scripts/readme-github-pages.sh
+  path: ./hello-go-deploy-marathon/ci/scripts/unit-tests.sh
   # args: [-debug]

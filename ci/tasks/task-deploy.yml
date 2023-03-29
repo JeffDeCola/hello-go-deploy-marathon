@@ -1,4 +1,4 @@
-# hello-go-deploy-marathon task-unit-tests.yml
+# hello-go-deploy-marathon task-deploy.yml
 
 platform: linux
 
@@ -10,11 +10,8 @@ image_resource:
     tag: 1.20.1
 
 inputs:
-- name: hello-go-deploy-marathon
-
-outputs:
-- name: coverage-results
+  - name: hello-go-deploy-marathon
 
 run:
-  path: ./hello-go-deploy-marathon/ci/scripts/unit-tests.sh
+  path: ./hello-go-deploy-marathon/ci/scripts/deploy.sh
   # args: [-debug]
