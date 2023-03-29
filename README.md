@@ -9,10 +9,10 @@
 [![MIT License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 [![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 
-_Test, build, push (to DockerHub) and deploy
-a long running "hello-world" Docker Image to Mesos/Marathon._
+_Deploy a "hello-world" docker image to
+Mesos/Marathon._
 
-I also have other repos showing different deployments,
+Other Services
 
 * PaaS
   * [hello-go-deploy-aws-elastic-beanstalk](https://github.com/JeffDeCola/hello-go-deploy-aws-elastic-beanstalk)
@@ -36,7 +36,6 @@ Table of Contents
 * [PREREQUISITES](https://github.com/JeffDeCola/hello-go-deploy-marathon#prerequisites)
 * [SOFTWARE STACK](https://github.com/JeffDeCola/hello-go-deploy-marathon#software-stack)
 * [RUN](https://github.com/JeffDeCola/hello-go-deploy-marathon#run)
-* [CREATE BINARY](https://github.com/JeffDeCola/hello-go-deploy-marathon#create-binary)
 * [STEP 1 - TEST](https://github.com/JeffDeCola/hello-go-deploy-marathon#step-1---test)
 * [STEP 2 - BUILD (DOCKER IMAGE VIA DOCKERFILE)](https://github.com/JeffDeCola/hello-go-deploy-marathon#step-2---build-docker-image-via-dockerfile)
 * [STEP 3 - PUSH (TO DOCKERHUB)](https://github.com/JeffDeCola/hello-go-deploy-marathon#step-3---push-to-dockerhub)
@@ -83,7 +82,6 @@ go get -u -v github.com/cweill/gotests/...
 
 * DEVELOPMENT
   * [go](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
-  * gotests
 * OPERATIONS
   * [concourse/fly](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations/continuous-integration-continuous-deployment/concourse-cheat-sheet)
     (optional)
@@ -93,7 +91,6 @@ go get -u -v github.com/cweill/gotests/...
     [marathon](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations/orchestration/cluster-managers-resource-management-scheduling/marathon-cheat-sheet)
 * SERVICES
   * [dockerhub](https://hub.docker.com/)
-  * [github](https://github.com/)
 
 ## RUN
 
@@ -105,7 +102,6 @@ cd hello-go-deploy-marathon-code
 go run main.go
 ```
 
-## CREATE BINARY
 
 To
 [create-binary.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/bin/create-binary.sh),
