@@ -199,7 +199,7 @@ To
 
 ```bash
 cd hello-go-deploy-marathon-code/deploy
-curl -X PUT http://localhost:8080/v2/apps/hello-go-long-running \
+curl -X PUT http://192.168.20.122:8080/v2/apps/hello-go-long-running \
 -d @app.json \
 -H "Content-type: application/json"
 ```
