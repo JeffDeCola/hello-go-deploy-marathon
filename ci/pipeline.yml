@@ -210,8 +210,8 @@ resource_types:
   - name: marathon-deploy
     type: docker-image
     source:
-    repository: ckaznocha/marathon-resource
-    tag: latest
+      repository: ckaznocha/marathon-resource
+      tag: latest
 
   - name: slack-notification
     type: docker-image
@@ -251,7 +251,8 @@ resources:
     icon: github
     source:
       app_id: hello-go-deploy-marathon-long-run
-      uri: http://localhost:8080
+      #uri: http://localhost:8080
+      uri: http://192.168.20.122:8080
 
   - name: resource-slack-alert
     type: slack-notification

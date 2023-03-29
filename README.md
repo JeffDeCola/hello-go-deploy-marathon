@@ -189,8 +189,9 @@ tells marathon how to deploy the docker image from dockerhub.
 To run mesos/marathon in a docker container,
 
 ```bash
-docker run --rm --privileged -p 5050:5050 -p 5051:5051 -p 8080:8080 mesos/mesos-mini
+docker run --rm --privileged -p 5050:5050 -p 5051:5051 -p 8080:8080 mesos/mesos-mini:1.9.x
 http://localhost:8080
+http://192.168.20.122:8080
 ```
 
 To
@@ -198,12 +199,10 @@ To
 
 ```bash
 cd hello-go-deploy-marathon-code/deploy
-curl -X PUT http://localhost:8080/v2/apps/hello-go-long-running \
+curl -X PUT http://192.168.20.122:8080/v2/apps/hello-go-long-running \
 -d @app.json \
 -H "Content-type: application/json"
 ```
-
-
 
 ## CONTINUOUS INTEGRATION & DEPLOYMENT
 
