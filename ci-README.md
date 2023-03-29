@@ -47,7 +47,7 @@ Concourse Resources
 * `resource-dump-to-dockerhub` uses a resource type
   [docker image](https://hub.docker.com/r/concourse/docker-image-resource/)
   to PUSH a docker image to dockerhub
-* `resource-deploy-marathon` users a docker image
+* `resource-deploy-marathon` users a resource type
   [docker image](https://hub.docker.com/r/ckaznocha/marathon-resource)
   to DEPLOY a docker image to marathon
 * `resource-slack-alert` uses a resource type
