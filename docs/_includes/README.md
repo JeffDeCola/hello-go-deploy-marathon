@@ -26,7 +26,6 @@ go get -u -v github.com/cweill/gotests/...
 
 * DEVELOPMENT
   * [go](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
-  * gotests
 * OPERATIONS
   * [concourse/fly](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations/continuous-integration-continuous-deployment/concourse-cheat-sheet)
     (optional)
@@ -36,7 +35,6 @@ go get -u -v github.com/cweill/gotests/...
     [marathon](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations/orchestration/cluster-managers-resource-management-scheduling/marathon-cheat-sheet)
 * SERVICES
   * [dockerhub](https://hub.docker.com/)
-  * [github](https://github.com/)
 
 ## RUN
 
@@ -48,14 +46,12 @@ cd hello-go-deploy-marathon-code
 go run main.go
 ```
 
-## CREATE BINARY
-
 To
 [create-binary.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/bin/create-binary.sh),
 
 ```bash
 cd hello-go-deploy-marathon-code/bin
-go build -o hello-go main.go
+go build -o hello-go ../main.go
 ./hello-go
 ```
 
@@ -81,6 +77,14 @@ cat test/test_coverage.txt
 
 ## STEP 2 - BUILD (DOCKER IMAGE VIA DOCKERFILE)
 
+This docker image is built in two stages.
+In **stage 1**, rather than copy a binary into a docker image (because
+that can cause issues), the Dockerfile will build the binary in the
+docker image.
+In **stage 2**, the Dockerfile will copy this binary
+and place it into a smaller docker image based
+on `alpine`, which is around 13MB.
+
 To
 [build.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/build/build.sh)
 with a
@@ -94,25 +98,12 @@ docker build -f Dockerfile -t jeffdecola/hello-go-deploy-marathon .
 You can check and test this docker image,
 
 ```bash
-docker images jeffdecola/hello-go-deploy-marathon:latest
+docker images jeffdecola/hello-go-deploy-marathon
 docker run --name hello-go-deploy-marathon -dit jeffdecola/hello-go-deploy-marathon
 docker exec -i -t hello-go-deploy-marathon /bin/bash
 docker logs hello-go-deploy-marathon
+docker rm -f hello-go-deploy-marathon
 ```
-
-In **stage 1**, rather than copy a binary into a docker image (because
-that can cause issues), the Dockerfile will build the binary in the
-docker image,
-
-```bash
-FROM golang:alpine AS builder
-RUN go get -d -v
-RUN go build -o /go/bin/hello-go-deploy-marathon main.go
-```
-
-In **stage 2**, the Dockerfile will copy the binary created in
-stage 1 and place into a smaller docker base image based
-on `alpine`, which is around 13MB.
 
 ## STEP 3 - PUSH (TO DOCKERHUB)
 
@@ -139,6 +130,13 @@ The
 [app.json](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/deploy/app.json)
 tells marathon how to deploy the docker image from dockerhub.
 
+To run mesos/marathon in a docker container,
+
+```bash
+docker run --rm --privileged -p 5050:5050 -p 5051:5051 -p 8080:8080 mesos/mesos-mini
+http://localhost:8080
+```
+
 To
 [deploy.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/hello-go-deploy-marathon-code/deploy/deploy.sh),
 
@@ -149,15 +147,10 @@ curl -X PUT http://localhost:8080/v2/apps/hello-go-long-running \
 -H "Content-type: application/json"
 ```
 
-You can locally run marathon to test with,
 
-```bash
-docker run --rm --privileged -p 5050:5050 -p 5051:5051 -p 8080:8080 mesos/mesos-mini
-http://localhost:8080
-```
 
 ## CONTINUOUS INTEGRATION & DEPLOYMENT
 
 Refer to
 [ci-README.md](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/ci-README.md)
-on how I automated the above steps.
+on how I automated the above steps using concourse.
