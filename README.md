@@ -1,13 +1,11 @@
 # HELLO GO DEPLOY MARATHON
 
 [![Tag Latest](https://img.shields.io/github/v/tag/jeffdecola/hello-go-deploy-marathon)](https://github.com/JeffDeCola/hello-go-deploy-marathon/tags)
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 [![Go Reference](https://pkg.go.dev/badge/github.com/JeffDeCola/hello-go-deploy-marathon.svg)](https://pkg.go.dev/github.com/JeffDeCola/hello-go-deploy-marathon)
 [![Go Report Card](https://goreportcard.com/badge/github.com/JeffDeCola/hello-go-deploy-marathon)](https://goreportcard.com/report/github.com/JeffDeCola/hello-go-deploy-marathon)
-[![codeclimate Maintainability](https://api.codeclimate.com/v1/badges/24c711ac3a1ec5155969/maintainability)](https://codeclimate.com/github/JeffDeCola/hello-go-deploy-marathon/maintainability)
-[![codeclimate Issue Count](https://codeclimate.com/github/JeffDeCola/hello-go-deploy-marathon/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/hello-go-deploy-marathon/issues)
 [![Docker Pulls](https://badgen.net/docker/pulls/jeffdecola/hello-go-deploy-marathon?icon=docker&label=pulls)](https://hub.docker.com/r/jeffdecola/hello-go-deploy-marathon/)
-[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
-[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 
 _Deploy a "hello-world" docker image to
 mesos/marathon._
